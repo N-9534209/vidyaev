@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Видяев Фёдор Алексеевич</title>
+<style>
+:root {
+  --navy: #1a2a4a;
+  --gold: #8b6914;
+  --gold-light: #c9a227;
+  --lgray: #f4f4f2;
+  --mgray: #d0d0cc;
+  --dgray: #3a3a3a;
+  --red: #8b1a1a;
+  --white: #ffffff;
+  --text: #1e1e1e;
+  --bg: #f0ede8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+/* ── ШАПКА ── */
+.hero {
+  background: linear-gradient(160deg, #0a1625 0%, var(--navy) 60%, #2a3a5a 100%);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M30 5 L55 20 L55 40 L30 55 L5 40 L5 20 Z" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>') repeat;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  padding: 60px 32px;
+  display: flex; gap: 48px; align-items: center;
+}
+.hero-photo {
+  flex-shrink: 0;
+  width: 200px; height: 260px;
+  border: 4px solid var(--gold);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  background: #0a1625;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.hero-text h1 {
+  font-size: 2.6rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: white; line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.hero-text .dates {
+  font-size: 1.1rem; color: var(--gold-light); margin-top: 10px; font-style: italic;
+}
+.hero-text .rank {
+  margin-top: 16px; font-size: 1.05rem; color: rgba(255,255,255,0.85);
+  border-left: 3px solid var(--gold); padding-left: 14px; line-height: 1.5;
+}
+.hero-text .motto {
+  margin-top: 22px; font-size: 1rem; color: rgba(255,255,255,0.65); font-style: italic;
+}
+nav {
+  background: var(--navy); position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+nav ul {
+  max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap;
+  list-style: none; padding: 0 20px;
+}
+nav ul li a {
+  display: block; padding: 14px 16px; color: rgba(255,255,255,0.8);
+  text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em;
+  text-transform: uppercase; transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+nav ul li a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 56px 0; border-bottom: 1px solid var(--mgray); }
+section:last-child { border-bottom: none; }
+.section-header {
+  background: var(--navy); color: white; padding: 14px 24px; margin-bottom: 32px;
+  border-radius: 2px; display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.section-header .num { font-size: 1.4rem; color: var(--gold-light); font-weight: bold; min-width: 32px; }
+.section-header h2 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.bio-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 24px; background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+.bio-table tr:nth-child(odd) td:first-child { background: var(--lgray); }
+.bio-table tr:nth-child(even) td:first-child { background: #eaeae7; }
+.bio-table td { padding: 10px 16px; border-bottom: 1px solid #e0e0dc; vertical-align: top; }
+.bio-table td:first-child {
+  font-weight: 600; color: var(--navy); width: 200px; font-size: 0.88rem;
+}
+.bio-table td:last-child { font-size: 0.95rem; }
+.prose p { margin-bottom: 16px; font-size: 0.97rem; }
+blockquote {
+  border-left: 4px solid var(--gold); margin: 24px 0;
+  padding: 14px 20px 14px 24px; background: var(--lgray);
+  color: var(--dgray); font-style: italic; border-radius: 0 4px 4px 0;
+}
+.subsection-title {
+  background: var(--lgray); border-left: 4px solid var(--gold);
+  padding: 10px 18px; margin: 28px 0 16px; font-weight: 600;
+  font-size: 1rem; color: var(--navy); border-radius: 0 2px 2px 0;
+}
+.data-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 24px; background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08); font-size: 0.88rem;
+}
+.data-table thead tr { background: var(--navy); }
+.data-table thead th {
+  color: white; padding: 9px 14px; text-align: left; font-weight: 600;
+  font-size: 0.82rem; letter-spacing: 0.03em;
+}
+.data-table tbody tr:nth-child(odd) { background: white; }
+.data-table tbody tr:nth-child(even) { background: var(--lgray); }
+.data-table tbody td { padding: 8px 14px; border-bottom: 1px solid #e8e8e4; vertical-align: top; }
+.gallery-section { background: white; }
+.gallery-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.tab-btn {
+  padding: 7px 18px; border: 2px solid var(--navy); background: transparent;
+  color: var(--navy); cursor: pointer; font-family: 'Georgia', serif;
+  font-size: 0.82rem; letter-spacing: 0.03em; border-radius: 2px;
+  transition: all 0.2s; text-transform: uppercase;
+}
+.tab-btn.active, .tab-btn:hover { background: var(--navy); color: white; }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
+}
+.photo-card {
+  background: #1a1a1a; border-radius: 3px; overflow: hidden; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.photo-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+.photo-card img {
+  width: 100%; height: 200px; object-fit: cover; display: block; transition: opacity 0.3s;
+}
+.photo-card img.loading { opacity: 0.5; }
+.photo-card .caption {
+  padding: 8px 12px; font-size: 0.78rem; color: rgba(255,255,255,0.75);
+  background: #1a1a1a; min-height: 36px; line-height: 1.3;
+}
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+  flex-direction: column;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 80vh; object-fit: contain;
+  border: 2px solid rgba(255,255,255,0.15); border-radius: 2px;
+}
+.lightbox .lb-caption {
+  color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 12px;
+  font-style: italic; max-width: 80vw; text-align: center;
+}
+.lb-close {
+  position: fixed; top: 20px; right: 28px; font-size: 2rem;
+  color: white; cursor: pointer; line-height: 1; background: none; border: none;
+  opacity: 0.7; transition: opacity 0.2s;
+}
+.lb-close:hover { opacity: 1; }
+.lb-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  font-size: 2.5rem; color: white; cursor: pointer;
+  background: rgba(0,0,0,0.3); border: none; padding: 10px 16px;
+  border-radius: 2px; opacity: 0.6; transition: opacity 0.2s;
+}
+.lb-nav:hover { opacity: 1; }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.awards-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+}
+.award-card {
+  background: white; border: 1px solid var(--mgray); border-radius: 3px;
+  padding: 16px; display: flex; gap: 14px; align-items: flex-start;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.award-icon { font-size: 1.8rem; line-height: 1; flex-shrink: 0; }
+.award-text strong { display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
+.award-text span { font-size: 0.8rem; color: #666; }
+.notice-box {
+  background: #fff8e1; border: 1px solid #f0c040; border-left: 4px solid #c9a227;
+  border-radius: 3px; padding: 14px 18px; margin-bottom: 24px;
+  font-size: 0.92rem; color: #5a4a10;
+}
+.notice-box strong { color: #4a3a00; }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--gold);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-dot {
+  position: absolute; left: -28px; top: 4px; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--gold); border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.tl-date {
+  font-size: 0.8rem; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;
+}
+.tl-content strong { display: block; font-size: 0.95rem; color: var(--navy); margin-bottom: 4px; }
+.tl-content p { font-size: 0.88rem; color: #555; margin: 0; }
+.crew-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;
+}
+.crew-card {
+  background: white; border: 1px solid var(--mgray); border-radius: 3px;
+  padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.crew-card .pos { font-size: 0.75rem; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+.crew-card .name { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.crew-card .detail { font-size: 0.8rem; color: #666; }
+footer {
+  background: var(--navy); color: rgba(255,255,255,0.7);
+  text-align: center; padding: 32px 24px; font-size: 0.85rem; line-height: 1.8;
+}
+footer strong { color: white; }
+@media (max-width: 680px) {
+  .hero-inner { flex-direction: column; gap: 24px; padding: 36px 20px; }
+  .hero-photo { width: 140px; height: 180px; }
+  .hero-text h1 { font-size: 1.7rem; }
+  nav ul li a { padding: 10px 10px; font-size: 0.72rem; }
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="https://www.dropbox.com/scl/fi/1dy33sjzb0wib17yybfvt/1-copy.jpg?rlkey=xsrv1pvaxie4n40upzerv04tt&raw=1"
+           alt="Видяев Фёдор Алексеевич"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="hero-text">
+      <h1>Видяев Фёдор Алексеевич</h1>
+      <div class="dates">7 ноября 1912 — 2–14 июля 1943</div>
+      <div class="rank">
+        Гвардии капитан 3-го ранга<br>
+        Командир подводных лодок Щ-421 и Щ-422<br>
+        Краснознамённый Северный флот
+      </div>
+      <div class="motto">Триста суток в море. Остался в нём навсегда.</div>
+    </div>
+  </div>
+</div>
+<nav>
+  <ul>
+    <li><a href="#bio">Биография</a></li>
+    <li><a href="#awards">Награды</a></li>
+    <li><a href="#combat">Боевой путь</a></li>
+    <li><a href="#person">Личность</a></li>
+    <li><a href="#family">Семья</a></li>
+    <li><a href="#crew">Экипаж</a></li>
+    <li><a href="#monuments">Памятники</a></li>
+    <li><a href="#vidyaevo">Видяево</a></li>
+    <li><a href="#hero-case" style="color:#f08080;">Дело о Герое</a></li>
+    <li><a href="#photos">Фотогалерея</a></li>
+  </ul>
+</nav>
+<div class="container">
+<section id="bio">
+  <div class="section-header"><span class="num">1</span><h2>Биография</h2></div>
+  <table class="bio-table">
+    <tr><td>Имя</td><td>Видяев Фёдор Алексеевич</td></tr>
+    <tr><td>Дата рождения</td><td>7 ноября 1912</td></tr>
+    <tr><td>Место рождения</td><td>с. Степная Шентала, Кошкинский р-н, Самарская обл.</td></tr>
+    <tr><td>Дата гибели</td><td>2–14 июля 1943</td></tr>
+    <tr><td>Место гибели</td><td>Баренцево море, р-н м. Маккаур–Варде (ш=70°31′, д=30°58′)</td></tr>
+    <tr><td>Воинское звание</td><td>Гвардии капитан 3-го ранга</td></tr>
+    <tr><td>Место службы</td><td>Краснознамённый Северный флот, бригада подводных лодок</td></tr>
+    <tr><td>Командование</td><td>ПЛ Щ-421 (02.1942–06.1942), ПЛ Щ-422 (06.1942–07.1943)</td></tr>
+    <tr><td>Образование</td><td>ВМУ им. Фрунзе, 1937 г.; ВСККс при КУОПП, 1940 г.</td></tr>
+    <tr><td>Партийность</td><td>Член ВКП(б)</td></tr>
+  </table>
+  <div class="prose">
+    <p>Фёдор Видяев родился в 1912 году в с. Степная Шентала Самарской губернии. В 1932 году начал службу в ВМФ. Окончил Военно-морское училище им. М.В. Фрунзе в 1937 году. Службу начал на Северном флоте, где прошёл путь от вахтенного офицера до командира подводной лодки.</p>
+    <p>С октября 1940 по февраль 1942 — помощник командира ПЛ Щ-421 под командованием Лунина Н.А. (впоследствии Героя Советского Союза). Принял участие в 5 боевых походах, в ходе которых экипаж уничтожил 7 транспортов противника (~49 000 брт).</p>
+    <p>В феврале 1942 года принял самостоятельное командование Щ-421, затем — Щ-422. За 13 командирских походов потопил 8 кораблей и судов противника общим тоннажем около 47 000 брт. Погиб в июле 1943 года в XIX боевом походе. Тело командира и всего экипажа (45 человек) не найдено.</p>
+  </div>
+</section>
+<section id="awards">
+  <div class="section-header"><span class="num">2</span><h2>Награды и звания</h2></div>
+  <div class="notice-box">
+    <strong>Важно:</strong> Звание Героя Советского Союза Видяеву присвоено <strong>не было</strong>. Первое представление — командира бригады Колышкина И.А. (август 1943) — Наркомом ВМФ не поддержано. Повторное представление Главнокомандующего ВМФ (февраль 1958) — Министром обороны СССР решение не принято. Официальный отказ МО РФ датирован 3 мая 2008 года.
+  </div>
+  <div class="awards-grid">
+    <div class="award-card"><div class="award-icon">🏅</div><div class="award-text"><strong>Орден Красного Знамени</strong><span>Приказ ВС СФ от 15.07.1941 № 02</span></div></div>
+    <div class="award-card"><div class="award-icon">🏅</div><div class="award-text"><strong>Орден Красного Знамени</strong><span>Приказ ВС СФ от 25.09.1942 № 032</span></div></div>
+    <div class="award-card"><div class="award-icon">🏅</div><div class="award-text"><strong>Орден Красного Знамени</strong><span>Приказ ВС СФ от 07.06.1943 № 045 — вручён перед последним походом</span></div></div>
+    <div class="award-card"><div class="award-icon">🎖️</div><div class="award-text"><strong>Орден Британской Империи</strong><span>1943, вручён вдове — Марии Ивановне — во Ржеве</span></div></div>
+    <div class="award-card"><div class="award-icon">⭐</div><div class="award-text"><strong>Представление к ГСС — отклонено (1943)</strong><span>Представление Колышкина И.А. Наркомом ВМФ не поддержано</span></div></div>
+    <div class="award-card"><div class="award-icon">⭐</div><div class="award-text"><strong>Повторное представление — отклонено (февраль 1958)</strong><span>Представление Главнокомандующего ВМФ. Министром обороны СССР решение не принято. Отказ МО РФ — 3 мая 2008 г.</span></div></div>
+  </div>
+  <blockquote style="margin-top:24px;">
+    Из официального ответа МО РФ (3 мая 2008, исх. №173/3/11078, подп. А. Ильин, нач. 3 управления ГУК):<br>
+    «<em>Повторное награждение возможно только за новые заслуги</em>»<br>
+    «<em>До настоящего времени обстоятельства и место гибели подводной лодки «Щ-422» не установлены</em>»
+  </blockquote>
+</section>
+<section id="combat">
+  <div class="section-header"><span class="num">3</span><h2>Боевой путь</h2></div>
+  <div class="subsection-title">3.1. Помощник командира ПЛ Щ-421 (октябрь 1940 – февраль 1942)</div>
+  <div class="prose"><p>Под командованием Лунина Н.А. принял участие в 5 боевых походах. Экипаж потопил 7 транспортов противника (~49 000 брт). Аттестация Лунина (листы 21–22 личного дела):</p></div>
+  <blockquote>«При его участии подлодка уничтожила 4 фашистских транспорта водоизмещением в 25 тыс. тонн. Достоин присвоения внеочередного воинского звания "капитан-лейтенант"»<br><small>— Командир Щ-421 капитан-лейтенант Лунин Н.А.</small></blockquote>
+  <div class="subsection-title">3.2. Командир ПЛ Щ-421 (февраль – июнь 1942)</div>
+  <div class="prose"><p><strong>28.03.1942</strong> — потоплен транспорт (5 000 брт) в районе Лаксе-фьорда (ЦВМА, ф. 112, д. 1497, л. 415 об.). В апреле 1942 года Щ-421 подорвалась на мине; Видяев несколько суток держал повреждённый корабль на плаву, не допустив захвата. Экипаж снят, лодка затоплена экипажем.</p></div>
+  <div class="subsection-title">3.3. Командир ПЛ Щ-422 (июнь 1942 – июль 1943)</div>
+  <table class="data-table">
+    <thead><tr><th>Дата</th><th>Цель</th><th>Район</th><th>Источник ЦВМА</th></tr></thead>
+    <tbody>
+      <tr><td>23.08.1942</td><td>Транспорт</td><td>р-н м. Кибергнес</td><td>ф.112, д.1906, л.17–18</td></tr>
+      <tr><td>24.08.1942</td><td>Транспорт (8 000 брт)</td><td>Варангер-фьорд (70°12′, 30°51′)</td><td>ф.112, д.1906, л.17–18</td></tr>
+      <tr><td>15.09.1942</td><td>СКР (600 брт)</td><td>Порсангер-фьорд (70°06′, 30°37′)</td><td>ф.112, д.1906, л.21 об.</td></tr>
+      <tr><td>20.02.1943</td><td>Транспорт (8 000 брт)</td><td>р-н Тана-фьорда</td><td>—</td></tr>
+      <tr><td>27.02.1943</td><td>СКР (600 брт)</td><td>р-н Тана-фьорда</td><td>—</td></tr>
+      <tr><td>19.04.1943</td><td>Транспорт (14 000 брт)</td><td>р-н м. Маккаур</td><td>ф.200, д.24720, л.73</td></tr>
+      <tr><td>31.05.1943</td><td>Транспорт (8 000 брт)</td><td>р-н Сюльте-фьорда</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="prose"><p><strong>Итого на Щ-421 и Щ-422 как командир: 8 кораблей, 47 000 брт.</strong> Суммарно с участием под Луниным — 15 кораблей, ~300 суток в море с начала войны.</p></div>
+  <div class="subsection-title">3.4. Последний поход</div>
+  <div class="prose"><p><strong>30 июня 1943 г.</strong> — Щ-422 вместе с ПЛ М-106 вышла в район м. Блудскютудде–Сейбунес. Обе лодки в базу не вернулись. Координаты предполагаемой гибели: ш=70°31′, д=30°58′. Версии: подрыв на мине, торпедная атака, таранный удар. Большая глубина делает верификацию невозможной.</p></div>
+</section>
+<section id="person">
+  <div class="section-header"><span class="num">4</span><h2>Личность. Человеческий документ</h2></div>
+  <div class="prose"><p>Современники описывали Видяева как человека редкого хладнокровия и трезвого военного расчёта. Он не был склонен к показному героизму, но в критические моменты проявлял исключительную твёрдость духа.</p></div>
+  <blockquote>«Не вернулся из очередного поиска наш общий любимец Видяев – самоотверженный, скромный человек, бескорыстный, верный товарищ. Приняв командование новой лодкой – Щ-422,– он за несколько месяцев увеличил счет ее побед с четырех до одиннадцати и сумел сделать многое для того, чтобы она стала гвардейской. Совсем недавно, перед его уходом в этот последний поход, я вручил ему третий орден Красного Знамени. Вручил перед строем экипажа, на пирсе. Колышкин тогда подсчитал, что Видяев с начала войны провел триста дней в море. Триста суток... И вот остался в нем навсегда...»<br><small>— Командующий СФ адмирал А.Г. Головко, дневник, 1943</small></blockquote>
+  <blockquote>«Во время войны в одном из боевых походов мой сослуживец – прославленный подводник-североморец Федор Видяев атаковал и потопил транспорт, шедший под сильным охранением. Корабли сопровождения стали преследовать лодку... Но Видяев не потерял самообладания. Он принял дерзкое, неожиданное для врага решение — вывел лодку между двумя вражескими кораблями, которые особенно настойчиво охотились за ней, и торпедировал один из них...»<br><small>— Герой Советского Союза И.Ф. Кучеренко, «Меридианы мужества», 1967</small></blockquote>
+  <blockquote>Из письма Члена Военного совета СФ А.А. Николаева — вдове (1943):<br>«<em>Видяев был настоящим большевиком, в нем прекрасно сочетались качества дерзкого и скромного, мужественного и спокойного, честного и прямого русского моряка. Он выполнил свой долг перед Родиной до конца... Видимо, лучшей памятью о Видяеве будет — воспитать его сына таким, каким был отец</em>»</blockquote>
+  <div class="prose"><p>Перед последним походом Видяев написал жене Марии Ивановне, находившейся в эвакуации, что по возвращении заедет в Москву за звездой Героя, а потом навестит семью. Письмо не сохранилось при возвращении из эвакуации. Мария Ивановна рассказывала о нём до конца жизни (ум. 1998).</p></div>
+</section>
+<section id="family">
+  <div class="section-header"><span class="num">5</span><h2>Семья</h2></div>
+  <table class="bio-table">
+    <tr><td>Жена</td><td>Видяева Мария Ивановна — Почётная гражданка ЗАТО Видяево; скончалась в 1998 г.</td></tr>
+    <tr><td>Сын</td><td>Видяев Константин Фёдорович, 15.08.1940 г.р., Санкт-Петербург</td></tr>
+    <tr><td>Внучка</td><td>Видяева Мария Константиновна, 31.01.1975 г.р., Санкт-Петербург</td></tr>
+    <tr><td>Внук</td><td>Видяев Фёдор Константинович, 20.10.1982 г.р. — мичман (третье поколение моряков!)</td></tr>
+    <tr><td>Правнук</td><td>Никита, 13.12.1999 г.р.</td></tr>
+  </table>
+  <div class="prose"><p>Мария Ивановна Видяева пережила мужа на 55 лет. Всю жизнь добивалась справедливости для его памяти. Семья Видяевых поддерживала связь с экипажами подводных лодок Северного флота, носивших имя командира. Сын и внук продолжили морскую службу.</p></div>
+</section>
+<section id="crew">
+  <div class="section-header"><span class="num">6</span><h2>Последний экипаж. Щ-422, поход XIX</h2></div>
+  <div class="prose" style="margin-bottom:20px;"><p>В июле 1943 года вместе с командиром погибли 45 членов экипажа. Среди них — двое курсантов и <strong>юнга Гомлин Дмитрий Сергеевич, 1926 г.р. — погиб в 16 лет</strong>. До сих пор ни один из 45 членов экипажа нигде не объявился — это само по себе исчерпывающее доказательство гибели.</p></div>
+  <div class="crew-grid">
+    <div class="crew-card"><div class="pos">Командир</div><div class="name">Видяев Фёдор Алексеевич</div><div class="detail">Гв. капитан 3-го ранга, трижды орденоносец</div></div>
+    <div class="crew-card"><div class="pos">Офицер</div><div class="name">Щергин Андрей Андреевич</div><div class="detail">Старший лейтенант</div></div>
+    <div class="crew-card"><div class="pos">Офицер</div><div class="name">Большаков Николай Иосифович</div><div class="detail">Старший лейтенант</div></div>
+    <div class="crew-card"><div class="pos">Юнга</div><div class="name">Гомлин Дмитрий Сергеевич</div><div class="detail">1926 г.р. — погиб в 16 лет</div></div>
+    <div class="crew-card"><div class="pos">Состав экипажа</div><div class="name">45 человек всего</div><div class="detail">Украина, Белоруссия, Поволжье, Урал, Сибирь, Кавказ — весь советский народ</div></div>
+    <div class="crew-card"><div class="pos">Статус</div><div class="name">Все погибли</div><div class="detail">Тела не найдены. Ветераны в 2008 г. просили наградить всех 44 Орденами Мужества посмертно.</div></div>
+  </div>
+</section>
+<section id="monuments">
+  <div class="section-header"><span class="num">7</span><h2>Памятники и увековечение памяти</h2></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">1943, Полярный</div><div class="tl-content"><strong>Первый памятник — на средства живых сослуживцев</strong><p>Поставлен сразу после гибели подводниками Северного флота. Скульптор — Алексей Кольцов. Другим погибшим подводникам-Героям (Гаджиеву, Фисановичу, Осипову) памятников при жизни их товарищей не ставили.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Самарская обл.</div><div class="tl-content"><strong>Памятник на родине — с. Степная Шентала</strong><p>Памятник Видяеву на его малой родине в Самарской области. В документах упоминается как «поселок Серные Волы, Самарская область» — место рождения командира.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Видяево</div><div class="tl-content"><strong>Переименование посёлка Урица в Видяево</strong><p>Посёлок Урица (Мурманская обл.) — база подводников Северного флота — получил имя командира.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">1983, Видяево</div><div class="tl-content"><strong>Мемориал и бронзовый бюст</strong><p>Скульптор Д.М. Епифанов. Эпитафия на каменной плите: «В глубинах, где шли мы в подводном дозоре... Видяев, навеки оставшийся в море, бессменную вахту поныне несёт»</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2000</div><div class="tl-content"><strong>Гибель АПРК «Курск» — трагический параллелизм</strong><p>«Курск» базировался в Видяево. 12 августа 2000 г. командир к-н 1-го ранга Лячин Г.П. со 117 членами экипажа ушёл «на бессменную вахту рядом с Федором Видяевым». Лячину — Герой России посмертно; 117 членам экипажа — Ордена Мужества. Видяев и 44 члена его экипажа — не получили ничего нового за 65 лет.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2006–2008</div><div class="tl-content"><strong>Кампания за посмертное звание Героя</strong><p>Совет ветеранов 35-й дивизии ПЛ СФ изучил личное дело в ЦВМА (Гатчина) и направил ходатайства в 6 инстанций: Главе ЗАТО Видяево, ГК ВМФ Масорину, вице-премьеру Нарышкину (дважды), Президенту Путину (февраль 2008), затем Медведеву. 3 мая 2008 г. — официальный отказ МО РФ (исх. №173/3/11078). Ветераны также просили наградить 44 члена экипажа Орденами Мужества посмертно.</p></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2013</div><div class="tl-content"><strong>70 лет со дня гибели. Памятные мероприятия в Видяево</strong><p>Торжественный митинг, возложение венков, почётный караул — 1 сентября 2013 года.</p></div></div>
+  </div>
+</section>
+<section id="vidyaevo">
+  <div class="section-header"><span class="num">8</span><h2>Видяево — ЗАТО на Кольском полуострове</h2></div>
+  <div class="prose">
+    <p>Посёлок Видяево (бывшая Ура-Губа) расположен в Мурманской области, в губе Западная Лица Кольского залива. В 1946 году переименован в честь Ф.А. Видяева — подводника, погибшего в 1943 году.</p>
+    <p>С 1950-х годов — закрытое административно-территориальное образование (ЗАТО), место базирования атомных подводных лодок Северного флота. В 2000 году здесь базировался атомный подводный крейсер «Курск», гибель которого стала крупнейшей катастрофой отечественного ВМФ в мирное время.</p>
+  </div>
+  <table class="bio-table">
+    <tr><td>Прежнее название</td><td>Ура-Губа (Урица)</td></tr>
+    <tr><td>Год переименования</td><td>1946</td></tr>
+    <tr><td>Статус</td><td>ЗАТО (закрытое административно-территориальное образование)</td></tr>
+    <tr><td>Расположение</td><td>Мурманская обл., Кольский п-ов, губа Западная Лица</td></tr>
+    <tr><td>Флот</td><td>Северный флот ВМФ России</td></tr>
+    <tr><td>Известные события</td><td>Гибель АПРК «Курск», 12 августа 2000 г.</td></tr>
+  </table>
+</section>
+<section id="hero-case" style="background:#f8f4ef; padding-bottom:60px;">
+  <div class="section-header" style="background:linear-gradient(135deg,#5a1a1a,#8b2020);"><span class="num">9</span><h2>Дело о Герое</h2></div>
+  <div class="container">
+    <p style="font-size:1.1rem; margin:32px 0 12px; line-height:1.8; color:#3a2020;">
+      Фёдор Алексеевич Видяев дважды представлялся к званию Героя Советского Союза — и дважды получал отказ.
+      Официальный ответ Министерства обороны РФ от 3 мая 2008 года (№&nbsp;173/3/11078) подтверждает оба представления документально.
+    </p>
+    <div style="display:flex; gap:0; margin:32px 0; border-left:4px solid #8b2020;"><div style="padding:20px 28px; border-bottom:1px solid #d0c0c0; flex:1; background:#fff8f5;"><div style="font-weight:bold; color:#8b2020; font-size:0.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:6px;">Июль–август 1943</div><div style="font-size:1rem;">Командир бригады ПЛ Северного флота <strong>контр-адмирал И.А. Колышкин</strong> представил Видяева к ГСС посмертно.</div><div style="margin-top:8px; color:#8b2020; font-weight:bold;">Нарком ВМФ представление не поддержал.</div></div></div>
+    <div style="display:flex; gap:0; margin:-16px 0 0; border-left:4px solid #8b2020;"><div style="padding:20px 28px; border-bottom:1px solid #d0c0c0; flex:1; background:#fff8f5;"><div style="font-weight:bold; color:#8b2020; font-size:0.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:6px;">Февраль 1958</div><div style="font-size:1rem;"><strong>Главнокомандующий ВМФ</strong> вновь ходатайствовал о присвоении звания Героя Советского Союза.</div><div style="margin-top:8px; color:#8b2020; font-weight:bold;">Министр обороны дальнейшего решения не принял.</div></div></div>
+    <div style="display:flex; gap:0; margin:-16px 0 32px; border-left:4px solid #8b2020;"><div style="padding:20px 28px; flex:1; background:#fff0f0;"><div style="font-weight:bold; color:#8b2020; font-size:0.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:6px;">3 мая 2008</div><div style="font-size:1rem;">МО РФ направило официальный ответ на обращение ветеранов. Исх. №&nbsp;173/3/11078, подп. А.&nbsp;Ильин.</div><div style="margin-top:8px; color:#8b2020; font-weight:bold;">«Повторное награждение возможно только за новые заслуги.»</div></div></div>
+    <h3 style="font-size:1.1rem; color:#5a1a1a; margin:8px 0 16px; padding-bottom:8px; border-bottom:2px solid #d0b090;">Представление к ГСС 1943 года — 5 листов</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; margin-bottom:40px;">
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/yh8jlrsln7fjzyhgmn6qo/2-1.jpg?rlkey=tq7f0guqabmd7jiwe5wy4s7wb&raw=1','Представление к ГСС, лист 1 — титульный')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/yh8jlrsln7fjzyhgmn6qo/2-1.jpg?rlkey=tq7f0guqabmd7jiwe5wy4s7wb&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 1</strong><br>Титульный лист представления</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/b4mzsch88ptyfd7a0jyet/2-2.jpg?rlkey=2r9nj2irl1wtkwf0v3kcioj8i&raw=1','Представление к ГСС, лист 2')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/b4mzsch88ptyfd7a0jyet/2-2.jpg?rlkey=2r9nj2irl1wtkwf0v3kcioj8i&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 2</strong><br>Боевая характеристика</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/9db5py468hwcqivq5sv2c/2-3.jpg?rlkey=e1ty5cewx5nap8psl3o2q8fdp&raw=1','Представление к ГСС, лист 3')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/9db5py468hwcqivq5sv2c/2-3.jpg?rlkey=e1ty5cewx5nap8psl3o2q8fdp&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 3</strong><br>Перечень боевых операций</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/x39t05v79cmuse14e1hmp/2-4.jpg?rlkey=bndh45o8oz8ofil2qc3na1m6x&raw=1','Представление к ГСС, лист 4')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/x39t05v79cmuse14e1hmp/2-4.jpg?rlkey=bndh45o8oz8ofil2qc3na1m6x&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 4</strong><br>Заключение командира бригады</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/zwuniydhkf6rsts7gjfzl/2-5.jpg?rlkey=igwlcxugijabu4zdqo2bpvb9p&raw=1','Представление к ГСС, лист 5 — подписи')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/zwuniydhkf6rsts7gjfzl/2-5.jpg?rlkey=igwlcxugijabu4zdqo2bpvb9p&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 5</strong><br>Подпись Колышкина, резолюция наркома</div></div>
+    </div>
+    <h3 style="font-size:1.1rem; color:#5a1a1a; margin:8px 0 16px; padding-bottom:8px; border-bottom:2px solid #d0b090;">Ходатайство Главнокомандующего ВМФ 1958 года — 3 листа</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; margin-bottom:40px;">
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/enu2bgzb3xbhxk3i939kd/1.jpg?rlkey=og69dnnz6w8j9rehbnyea7xro&raw=1','Ходатайство Главкома ВМФ 1958, лист 1')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/enu2bgzb3xbhxk3i939kd/1.jpg?rlkey=og69dnnz6w8j9rehbnyea7xro&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 1</strong><br>Ходатайство Главкома ВМФ</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/ckol1538wlqclsymlt2tc/2.jpg?rlkey=firds9vurmemt7aox2ksnf3f9&raw=1','Ходатайство Главкома ВМФ 1958, лист 2')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/ckol1538wlqclsymlt2tc/2.jpg?rlkey=firds9vurmemt7aox2ksnf3f9&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 2</strong><br>Обоснование представления</div></div>
+      <div onclick="openLightboxUrl('https://www.dropbox.com/scl/fi/7udsawyjby343o3tzg5sx/3.jpg?rlkey=ap100vh5nkpm26cfvwrp0qtmm&raw=1','Ходатайство Главкома ВМФ 1958, лист 3')" style="cursor:pointer; border:2px solid #d0b090; border-radius:6px; overflow:hidden; background:#fff;"><img src="https://www.dropbox.com/scl/fi/7udsawyjby343o3tzg5sx/3.jpg?rlkey=ap100vh5nkpm26cfvwrp0qtmm&raw=1" style="width:100%;height:140px;object-fit:cover;" onerror="this.style.display='none'"><div style="padding:8px 10px; font-size:0.8rem; color:#5a1a1a; line-height:1.4;"><strong>Лист 3</strong><br>Итоговый лист ходатайства</div></div>
+    </div>
+    <p style="font-size:0.9rem; color:#666; font-style:italic; border-left:3px solid #d0b090; padding-left:16px; line-height:1.7;">Оригиналы представлений хранятся в <strong>Центральном военно-морском архиве (ЦВМА) в Гатчине</strong>. 118 членов экипажа атомохода «Курск» были награждены государственными наградами в течение месяца после гибели в 2000 году. 45 членов экипажа Щ-422 не получили ничего за 80 лет.</p>
+  </div>
+</section>
+<section id="photos" class="gallery-section">
+  <div class="section-header"><span class="num">10</span><h2>Фотогалерея</h2></div>
+  <div class="gallery-tabs">
+    <button class="tab-btn active" onclick="filterGallery('all', this)">Все</button>
+    <button class="tab-btn" onclick="filterGallery('portrait', this)">Портреты</button>
+    <button class="tab-btn" onclick="filterGallery('family', this)">Семья</button>
+    <button class="tab-btn" onclick="filterGallery('sub', this)">Подводные лодки</button>
+    <button class="tab-btn" onclick="filterGallery('memorial', this)">Мемориал</button>
+    <button class="tab-btn" onclick="filterGallery('docs', this)">Документы</button>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/xtdm8ylbhkhkoscu912ad/01.jpg?rlkey=dvwdnpnf14x4sd44b71yr8a3d&raw=1" data-src="https://www.dropbox.com/scl/fi/xtdm8ylbhkhkoscu912ad/01.jpg?rlkey=dvwdnpnf14x4sd44b71yr8a3d&raw=1" alt="Видяев Ф.А." onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. — официальный портрет</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/hwxvl0o8pat1py13ng18w/1363760212_vidyaev.jpg?rlkey=sz5faqdtzqksuw8y57hvm8v0h&raw=1" data-src="https://www.dropbox.com/scl/fi/hwxvl0o8pat1py13ng18w/1363760212_vidyaev.jpg?rlkey=sz5faqdtzqksuw8y57hvm8v0h&raw=1" alt="Видяев Ф.А." onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. — фотопортрет</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/5kio7mg4zaab6su18mxiq/6.jpg?rlkey=f90qzdfcqf6yw4po5m8rm62wv&raw=1" data-src="https://www.dropbox.com/scl/fi/5kio7mg4zaab6su18mxiq/6.jpg?rlkey=f90qzdfcqf6yw4po5m8rm62wv&raw=1" alt="Видяев Ф.А." onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. — в форме офицера</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/01lnu4l1pxzkjneofbjf0/.-..jpg?rlkey=yhebgl6vnni0lymb9fu6wn7ps&raw=1" data-src="https://www.dropbox.com/scl/fi/01lnu4l1pxzkjneofbjf0/.-..jpg?rlkey=yhebgl6vnni0lymb9fu6wn7ps&raw=1" alt="Видяев Ф.А." onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. — портрет</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/vmyg0a2wvrwpfl7cz0qqf/.jpg?rlkey=zziznxfcbfjs3a7tp9cgvz0zp&raw=1" data-src="https://www.dropbox.com/scl/fi/vmyg0a2wvrwpfl7cz0qqf/.jpg?rlkey=zziznxfcbfjs3a7tp9cgvz0zp&raw=1" alt="Видяев Ф.А. на лодке" onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. на лодке</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/r40mjh7fznykbs323jrns/.jpg?rlkey=wmmsoum38jpdm0a4ybx4o28mc&raw=1" data-src="https://www.dropbox.com/scl/fi/r40mjh7fznykbs323jrns/.jpg?rlkey=wmmsoum38jpdm0a4ybx4o28mc&raw=1" alt="Видяев рассказывает о походе" onerror="this.style.display='none'"><div class="caption">Видяев рассказывает о походе</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/q9lvh2oimn54ppvkz6wv0/post-34971-0-46986400-1476453703.jpg?rlkey=wtg6zjfuehq16uxn6v2tgk1kj&raw=1" data-src="https://www.dropbox.com/scl/fi/q9lvh2oimn54ppvkz6wv0/post-34971-0-46986400-1476453703.jpg?rlkey=wtg6zjfuehq16uxn6v2tgk1kj&raw=1" alt="Полярный. Июнь 1943" onerror="this.style.display='none'"><div class="caption">Полярный. Июнь 1943</div></div>
+    <div class="photo-card" data-cat="portrait" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/i8pjlqx0vy1vi4lbhghtk/1-5.jpg?rlkey=6cl3824im9jyff3pk7rrqxqb4&raw=1" data-src="https://www.dropbox.com/scl/fi/i8pjlqx0vy1vi4lbhghtk/1-5.jpg?rlkey=6cl3824im9jyff3pk7rrqxqb4&raw=1" alt="Видяев Ф.А." onerror="this.style.display='none'"><div class="caption">Видяев Ф.А. — из личного дела (1 из 5)</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/lrsbi2cun8s4xdh1qqi42/copy.jpg?rlkey=ontaif3btbhdgk1fucphq4r1u&raw=1" data-src="https://www.dropbox.com/scl/fi/lrsbi2cun8s4xdh1qqi42/copy.jpg?rlkey=ontaif3btbhdgk1fucphq4r1u&raw=1" alt="Ф.А. и М.И. Видяевы" onerror="this.style.display='none'"><div class="caption">Ф.А. Видяев и М.И. Видяева</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/zccjtpxy2wb5z18qqlswr/1.jpg?rlkey=o4dzwfz2ct5o482oyteq3t2c0&raw=1" data-src="https://www.dropbox.com/scl/fi/zccjtpxy2wb5z18qqlswr/1.jpg?rlkey=o4dzwfz2ct5o482oyteq3t2c0&raw=1" alt="М.И. Видяева" onerror="this.style.display='none'"><div class="caption">Видяева Мария Ивановна — вдова командира</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/gczxw3dfzeq8ha72iudov/2.jpg?rlkey=am86ikvzdfedntzdgiyzb38cl&raw=1" data-src="https://www.dropbox.com/scl/fi/gczxw3dfzeq8ha72iudov/2.jpg?rlkey=am86ikvzdfedntzdgiyzb38cl&raw=1" alt="М.И. Видяева" onerror="this.style.display='none'"><div class="caption">Мария Ивановна Видяева</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/kr4t72hewiil9oeds0qos/02.jpg?rlkey=knmhy0e5mhzosktppkuw1q9gb&raw=1" data-src="https://www.dropbox.com/scl/fi/kr4t72hewiil9oeds0qos/02.jpg?rlkey=knmhy0e5mhzosktppkuw1q9gb&raw=1" alt="Видяев К.Ф. — сын" onerror="this.style.display='none'"><div class="caption">Видяев Константин Фёдорович — сын командира</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/0h1avyhl5x8wkyha0hrrq/03.jpg?rlkey=5ph4sk3x59xvwlumoarl57gwv&raw=1" data-src="https://www.dropbox.com/scl/fi/0h1avyhl5x8wkyha0hrrq/03.jpg?rlkey=5ph4sk3x59xvwlumoarl57gwv&raw=1" alt="Видяев Ф.К. — внук" onerror="this.style.display='none'"><div class="caption">Видяев Фёдор Константинович — внук командира, мичман</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/h9omp2t2q1m3o7gmccymo/.jpg?rlkey=nntwrjgkwx2l7v65uzen8rekk&raw=1" data-src="https://www.dropbox.com/scl/fi/h9omp2t2q1m3o7gmccymo/.jpg?rlkey=nntwrjgkwx2l7v65uzen8rekk&raw=1" alt="Семья Видяевых" onerror="this.style.display='none'"><div class="caption">Семья Видяевых</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/jro6z0pqmp0pk8bs5l5on/copy.jpg?rlkey=sivk6yppluxqke2qruguwaof6&raw=1" data-src="https://www.dropbox.com/scl/fi/jro6z0pqmp0pk8bs5l5on/copy.jpg?rlkey=sivk6yppluxqke2qruguwaof6&raw=1" alt="Семья Видяевых у мемориала" onerror="this.style.display='none'"><div class="caption">Семья Видяевых у мемориала</div></div>
+    <div class="photo-card" data-cat="family" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/c7fxphhv4slaw1mcily8k/04.jpg?rlkey=i10voi1zt92lcjw2m5dnxrki2&raw=1" data-src="https://www.dropbox.com/scl/fi/c7fxphhv4slaw1mcily8k/04.jpg?rlkey=i10voi1zt92lcjw2m5dnxrki2&raw=1" alt="Видяевы — новости" onerror="this.style.display='none'"><div class="caption">Семья Видяевых — публикации о командире</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/efux0no7j1wihsp0cjeju/22-421.png?rlkey=smn8botr9sj83f4kss9gn0yj1&raw=1" data-src="https://www.dropbox.com/scl/fi/efux0no7j1wihsp0cjeju/22-421.png?rlkey=smn8botr9sj83f4kss9gn0yj1&raw=1" alt="К-22 и Щ-421" onerror="this.style.display='none'"><div class="caption">К-22 и Щ-421 — подводные лодки Северного флота</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/xkhk5iu5fxhouybg5hle5/421.jpg?rlkey=if3xaev97po90gqnhce3ga1zq&raw=1" data-src="https://www.dropbox.com/scl/fi/xkhk5iu5fxhouybg5hle5/421.jpg?rlkey=if3xaev97po90gqnhce3ga1zq&raw=1" alt="Щ-421" onerror="this.style.display='none'"><div class="caption">Щ-421 — первая лодка Видяева</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/olgecp3yd1t2p1pwwnmpf/422.jpg?rlkey=ux3w0kzcm0zbnuyrndpobzwss&raw=1" data-src="https://www.dropbox.com/scl/fi/olgecp3yd1t2p1pwwnmpf/422.jpg?rlkey=ux3w0kzcm0zbnuyrndpobzwss&raw=1" alt="Щ-422" onerror="this.style.display='none'"><div class="caption">Щ-422 — последняя лодка Видяева</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/ovlmipuj0iw7vn39dlquu/1363759913_sch-421.jpg?rlkey=3spfuidgebgzy8sform3b36c8&raw=1" data-src="https://www.dropbox.com/scl/fi/ovlmipuj0iw7vn39dlquu/1363759913_sch-421.jpg?rlkey=3spfuidgebgzy8sform3b36c8&raw=1" alt="Экипаж Щ-421" onerror="this.style.display='none'"><div class="caption">Экипаж Щ-421</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/qbnl2egbx8nf7f8jnkful/421.png?rlkey=v9yygpodux5tgyb5a2ggd0y3q&raw=1" data-src="https://www.dropbox.com/scl/fi/qbnl2egbx8nf7f8jnkful/421.png?rlkey=v9yygpodux5tgyb5a2ggd0y3q&raw=1" alt="Экипаж Щ-421" onerror="this.style.display='none'"><div class="caption">Экипаж Щ-421</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/bwybyjfp3zn0y2ljumcis/422.jpg?rlkey=phv4b6fe44dmvnmxoptsn1er1&raw=1" data-src="https://www.dropbox.com/scl/fi/bwybyjfp3zn0y2ljumcis/422.jpg?rlkey=phv4b6fe44dmvnmxoptsn1er1&raw=1" alt="Экипаж Щ-422" onerror="this.style.display='none'"><div class="caption">Экипаж Щ-422</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/csvtx2t7tazypogydwicl/12x12.jpg?rlkey=xzi9ca9b2sauf2654et8l37x4&raw=1" data-src="https://www.dropbox.com/scl/fi/csvtx2t7tazypogydwicl/12x12.jpg?rlkey=xzi9ca9b2sauf2654et8l37x4&raw=1" alt="Подводная лодка — из личного дела" onerror="this.style.display='none'"><div class="caption">Подводная лодка — из личного дела</div></div>
+    <div class="photo-card" data-cat="sub" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/qwf3c3pmakfxwc05j592i/12x12.jpg?rlkey=a242blkxoyouc0t8viu4bq2wa&raw=1" data-src="https://www.dropbox.com/scl/fi/qwf3c3pmakfxwc05j592i/12x12.jpg?rlkey=a242blkxoyouc0t8viu4bq2wa&raw=1" alt="ПЛПЛ Щ — из личного дела" onerror="this.style.display='none'"><div class="caption">ПЛПЛ Щ — из личного дела</div></div>
+    <div class="photo-card" data-cat="memorial" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/lmauwdczq562hibfenitm/.jpg?rlkey=6w46ig3x9dyhcda34zkjvctt8&raw=1" data-src="https://www.dropbox.com/scl/fi/lmauwdczq562hibfenitm/.jpg?rlkey=6w46ig3x9dyhcda34zkjvctt8&raw=1" alt="Мемориал Видяеву" onerror="this.style.display='none'"><div class="caption">Мемориал Ф.А. Видяеву в Видяево</div></div>
+    <div class="photo-card" data-cat="docs" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/1dy33sjzb0wib17yybfvt/1-copy.jpg?rlkey=xsrv1pvaxie4n40upzerv04tt&raw=1" data-src="https://www.dropbox.com/scl/fi/1dy33sjzb0wib17yybfvt/1-copy.jpg?rlkey=xsrv1pvaxie4n40upzerv04tt&raw=1" alt="Личное дело — часть 1" onerror="this.style.display='none'"><div class="caption">Личное дело (ЦВМА) — часть 1</div></div>
+    <div class="photo-card" data-cat="docs" onclick="openLightbox(this)"><img src="https://www.dropbox.com/scl/fi/o0rlioy270rtcjcpocz4a/2-copy.jpg?rlkey=6l5mq5bamovqsc9h5jfu5xipf&raw=1" data-src="https://www.dropbox.com/scl/fi/o0rlioy270rtcjcpocz4a/2-copy.jpg?rlkey=6l5mq5bamovqsc9h5jfu5xipf&raw=1" alt="Личное дело — часть 2" onerror="this.style.display='none'"><div class="caption">Личное дело (ЦВМА) — часть 2</div></div>
+  </div>
+</section>
+</div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightboxDirect()">✕</button>
+  <button class="lb-nav lb-prev" onclick="navLightbox(-1); event.stopPropagation()">‹</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-caption"></div>
+  <button class="lb-nav lb-next" onclick="navLightbox(1); event.stopPropagation()">›</button>
+</div>
+<footer>
+  <strong>Видяев Фёдор Алексеевич</strong><br>
+  Гвардии капитан 3-го ранга · 1912–1943<br><br>
+  Подводная лодка Щ-422 · Краснознамённый Северный флот<br>
+  Все 45 членов экипажа погибли в июле 1943 года<br><br>
+  Материалы: из личного дела Ф.А. Видяева и архива Трибеля М.В.
+</footer>
+<script>
+let currentCards = [];
+let currentIndex = 0;
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.photo-card');
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) card.style.display = '';
+    else card.style.display = 'none';
+  });
+}
+function getVisibleCards() {
+  return [...document.querySelectorAll('.photo-card')].filter(c => c.style.display !== 'none');
+}
+function openLightboxUrl(url, caption) {
+  document.getElementById('lb-img').src = url;
+  document.getElementById('lb-caption').textContent = caption || '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  currentCards = [];
+  currentIndex = -1;
+}
+function openLightbox(el) {
+  const card = el.closest('.photo-card') || el;
+  const img = card.querySelector('img');
+  const caption = card.querySelector('.caption');
+  currentCards = getVisibleCards();
+  currentIndex = currentCards.indexOf(card);
+  const url = img.dataset.src || img.src;
+  document.getElementById('lb-img').src = url;
+  document.getElementById('lb-caption').textContent = caption ? caption.textContent : '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightboxDirect();
+}
+function closeLightboxDirect() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir) {
+  currentCards = getVisibleCards();
+  currentIndex = (currentIndex + dir + currentCards.length) % currentCards.length;
+  const card = currentCards[currentIndex];
+  const img = card.querySelector('img');
+  const caption = card.querySelector('.caption');
+  const url = img.dataset.src || img.src;
+  document.getElementById('lb-img').src = url;
+  document.getElementById('lb-caption').textContent = caption ? caption.textContent : '';
+}
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+  if (e.key === 'Escape') closeLightboxDirect();
+});
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+document.querySelectorAll('.photo-card img').forEach(img => {
+  img.addEventListener('error', function() {
+    this.parentElement.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
